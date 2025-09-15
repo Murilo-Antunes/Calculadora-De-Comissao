@@ -24,26 +24,25 @@ public class Vendedor {
     public void calcularComissao(){
 
         if (totalVendas >= 20000){
-            percentualComissao = 0.1;
+            percentualComissao = 10;
         }
         else {
-            percentualComissao = 0.05;
+            percentualComissao = 5;
         }
 
-        valorComissao = (totalVendas * percentualComissao) + totalVendas;
+        valorComissao = (totalVendas * percentualComissao / 100);
 
         exibirResultados();
     }
 
     public void exibirResultados(){
-        double percentualComissaoPorcento = percentualComissao * 100;
         String totalVendasDoisDecimais = String.format("%.2f", totalVendas);
         String valorComissaoDoisDecimais = String.format("%.2f", valorComissao);
 
         System.out.println("-------------------------------------------------------");
         System.out.println("VENDEDOR: " + nomeVendedor);
         System.out.println("TOTAL VENDAS: R$" + totalVendasDoisDecimais);
-        System.out.println("PERCENTUAL DE COMISSÃO: " + percentualComissaoPorcento + "%");
+        System.out.println("PERCENTUAL DE COMISSÃO: " + percentualComissao + "%");
         System.out.println("VALOR DA COMISSÃO: R$" + valorComissaoDoisDecimais);
         System.out.println("-------------------------------------------------------");
     }
